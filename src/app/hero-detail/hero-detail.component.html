@@ -1,10 +1,10 @@
-<!-- #2 because selectedHero is undefined. *ngIf must be implement -->
+<!-- ANCHOR[id=2] because selectedHero is undefined. *ngIf must be implement -->
 <!-- it provide the condition which component should only display -->
 <!-- when the selectedHero is exists (true) -->
 
-<!-- #4 at this point this child component will recieve property-->
+<!-- ANCHOR[id=4] at this point this child component will recieve property-->
 <!-- "selectedHero" from parent component, mapping as "Hero" property -->
-<!-- combine with *ngIf statement to check if "hero" exist -->
+<!-- combine with *ngIf statement to check if "hero" -->
 <div *ngIf="hero">
   <h2>{{ hero.name | uppercase }} Defails</h2>
   <div><span>id: </span>{{ hero.id }}</div>

@@ -3,6 +3,7 @@ import { Hero } from '../hero';
 // import { HEROES } from '../mock-heroes';
 
 import { HeroService } from '../hero.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-heroes',
@@ -15,14 +16,18 @@ export class HeroesComponent implements OnInit {
     this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
   }
 
-  // #1 on app initialize 'selectedHero' is undefined >> hero-detail.component.html
-
+  // ANCHOR[id=1] on app initialize 'selectedHero' is undefined >> hero-detail.component.html
+  // LINK ../hero-detail/hero-detail.component.html#2
   selectedHero: Hero;
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
   }
 
-  constructor(private heroService: HeroService) {}
+  constructor(
+    private heroService: HeroService,
+    private messageService: MessageService
+  ) {}
 
   ngOnInit(): void {
     this.getHeroes();
