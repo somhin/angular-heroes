@@ -11,15 +11,7 @@
   </li>
 </ul>
 
-<!-- #2 because selectedHero is undefined. *ngIf must be implement -->
-<!-- it provide the condition which component should only display -->
-<!-- when the selectedHero is exists (true) -->
-<div *ngIf="selectedHero">
-  <h2>{{ selectedHero.name | uppercase }} Defails</h2>
-  <div><span>id: </span>{{ selectedHero.id }}</div>
-  <div>
-    <label>
-      name <input [(ngModel)]="selectedHero.name" placeholder="name" />
-    </label>
-  </div>
-</div>
+<!-- #3 [hero]="selectedHero" is property binding, whenever selectedHero change -->
+<!-- it passed hero (property {state in React}) down to it child component (app-hero-detail) -->
+<!-- #4 in hero-detail.component.html -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>

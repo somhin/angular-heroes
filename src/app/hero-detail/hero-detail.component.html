@@ -1,0 +1,14 @@
+<!-- #2 because selectedHero is undefined. *ngIf must be implement -->
+<!-- it provide the condition which component should only display -->
+<!-- when the selectedHero is exists (true) -->
+
+<!-- #4 at this point this child component will recieve property-->
+<!-- "selectedHero" from parent component, mapping as "Hero" property -->
+<!-- combine with *ngIf statement to check if "hero" exist -->
+<div *ngIf="hero">
+  <h2>{{ hero.name | uppercase }} Defails</h2>
+  <div><span>id: </span>{{ hero.id }}</div>
+  <div>
+    <label> name <input [(ngModel)]="hero.name" placeholder="name" /> </label>
+  </div>
+</div>
