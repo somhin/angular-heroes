@@ -1,0 +1,25 @@
+<h2>My Heroes</h2>
+
+<ul class="heroes">
+  <!-- *nfFor use to loop through the array of heroes -->
+  <li
+    *ngFor="let hero of heroes"
+    [class.selected]="hero === selectedHero"
+    (click)="onSelect(hero)"
+  >
+    <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+  </li>
+</ul>
+
+<!-- #2 because selectedHero is undefined. *ngIf must be implement -->
+<!-- it provide the condition which component should only display -->
+<!-- when the selectedHero is exists (true) -->
+<div *ngIf="selectedHero">
+  <h2>{{ selectedHero.name | uppercase }} Defails</h2>
+  <div><span>id: </span>{{ selectedHero.id }}</div>
+  <div>
+    <label>
+      name <input [(ngModel)]="selectedHero.name" placeholder="name" />
+    </label>
+  </div>
+</div>
